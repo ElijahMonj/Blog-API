@@ -1,0 +1,35 @@
+GET http://localhost:3000/blogs
+
+###
+
+GET http://localhost:3000/blogs/63ad869abc2f2fafb5b5362d
+
+###
+
+POST http://localhost:3000/blogs
+Content-Type: application/json
+
+{
+    "title":"Fucking Amazing",
+    "content": "TY webdev TY webdev simpTY webdev simpTY webdev simpTY webdev simp"
+}
+
+###
+
+DELETE http://localhost:3000/blogs/63ad92c8ad543751bc8cd13b
+
+###
+
+PATCH http://localhost:3000/blogs/63ad93ceea4717a19cfc428a
+Content-Type: application/json
+
+{
+    "title": "2n Blog",
+    "content": "New ???",
+    "comments":[{
+        "email": "123@123.com",
+        "time": "time",
+        "comment": "tf is this shit?"
+    }],
+    "time":""
+}
