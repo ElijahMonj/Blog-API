@@ -17,7 +17,11 @@ const blogSchema=new mongoose.Schema({
     comments:{
         type:Array,
         default: []
+    },
+    imgThumbnail:{
+        type:String,
     }
+
 
 })
 

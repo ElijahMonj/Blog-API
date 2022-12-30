@@ -21,7 +21,7 @@ router.post('/', async (req,res)=>{
     const blog=new Blog({
         title: req.body.title,
         content:req.body.content,
-
+        imgThumbnail:req.body.imgThumbnail
     })
     try {
         const newBlog =await blog.save()
@@ -32,11 +32,15 @@ router.post('/', async (req,res)=>{
 })
 //CREATE A BLOG
 router.patch('/:id', getBlog, async (req,res)=>{
+    
     if(req.body.title!=null){
         res.blog.title=req.body.title
     }
     if(req.body.content!=null){
         res.blog.content=req.body.content
+    }
+    if(req.body.imgThumbnail!=null){
+        res.blog.imgThumbnail=req.body.imgThumbnail
     }
     
 

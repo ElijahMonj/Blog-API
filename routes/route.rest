@@ -10,13 +10,15 @@ POST http://localhost:3000/blogs
 Content-Type: application/json
 
 {
-    "title":"Fucking Amazing",
-    "content": "TY webdev TY webdev simpTY webdev simpTY webdev simpTY webdev simp"
+    "title":"My Blog 4",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "imgThumbnail": "myblog-img.com"
+
 }
 
 ###
 
-DELETE http://localhost:3000/blogs/63ae4c3c7d3090365b52b83b
+DELETE http://localhost:3000/blogs/63ae5005deee3fba9e399e18
 
 ###
 
@@ -26,17 +28,17 @@ Content-Type: application/json
 {
     "title": "2n Blog",
     "content": "New ???",
-    
+    "imgThumbnail": "img-link",
     "time":""
 }
 
 ###
 
-PATCH http://localhost:3000/blogs/63ae4c987d3090365b52b851/newComment
+PATCH http://localhost:3000/blogs/63ae56f0ef00dd0aa8c78ad2/newComment
 Content-Type: application/json
 
 {
-        "commentEmail": "new Comment wtf",
-        "commentTime": "time",
-        "commentContent": "fuck this shit"
+        "commentEmail": "New Comment",
+        "commentTime": "12/30/2022, 11:41:58 AM",
+        "commentContent": "Lorem ipsum dolor sit amet"
 }
