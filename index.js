@@ -13,5 +13,5 @@ app.use(express.json())
 const blogsRouter = require('./routes/blogs')
 app.use('/blogs',blogsRouter)
 
-
-app.listen(3000, ()=>console.log("Server Started"))
+const port =process.env.PORT || 3000;
+app.listen(port, ()=>console.log("Server Started"))
