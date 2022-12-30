@@ -12,11 +12,11 @@ router.get('/', async (req,res)=>{
         res.status(500).json({message : err.message})
     }
 })
-
+//GET BLOGS
 router.get('/:id', getBlog,(req,res)=>{
     res.json(res.blog)
 })
-
+//GET ONE BLOG
 router.post('/', async (req,res)=>{
     const blog=new Blog({
         title: req.body.title,
@@ -29,10 +29,8 @@ router.post('/', async (req,res)=>{
     } catch (err) {
         res.status(400).json({message: err.message})
     }
-
-
 })
-
+//CREATE A BLOG
 router.patch('/:id', getBlog, async (req,res)=>{
     if(req.body.title!=null){
         res.blog.title=req.body.title
@@ -40,9 +38,7 @@ router.patch('/:id', getBlog, async (req,res)=>{
     if(req.body.content!=null){
         res.blog.content=req.body.content
     }
-    if(req.body.comments!=null){
-        res.blog.comments=req.body.comments
-    }
+    
 
     try {
         const updatedBlog = await res.blog.save()
@@ -51,7 +47,30 @@ router.patch('/:id', getBlog, async (req,res)=>{
         res.status(400).json({message: err.message})
     }
 })
+//UPDATE A BLOG
+router.patch('/:id/newComment', getBlog, async (req,res)=>{
 
+    
+    const newComment = {
+        commentEmail: req.body.commentEmail,
+        commentTime: req.body.commentTime,
+        commentContent: req.body.commentContent
+    }
+    console.log(res.blog.comments)
+    let currentComments=res.blog.comments;
+    currentComments.unshift(newComment);
+    
+    console.log("New comment "+currentComments)
+    res.blog.comments=currentComments;
+
+    try {
+        const updatedBlog = await res.blog.save()
+        res.json(updatedBlog)
+    } catch (err) {
+        res.status(400).json({message: err.message})
+    }
+})
+//ADD COMMENT
 router.delete('/:id', getBlog, async(req,res)=>{
    try {
        await res.blog.remove()
@@ -60,7 +79,7 @@ router.delete('/:id', getBlog, async(req,res)=>{
        res.status(500).json({message: err.message})
    }
 })
-
+//DELETE A BLOG
 
 async function getBlog(req,res,next){
     let blog
