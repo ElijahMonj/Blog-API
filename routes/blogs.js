@@ -53,8 +53,12 @@ router.patch('/:id', getBlog, async (req,res)=>{
 })
 //UPDATE A BLOG
 router.patch('/:id/newComment', getBlog, async (req,res)=>{
-
-    
+    console.log("----------------------------------")
+    console.log("PATCHING "+req.params.id)
+    console.log(req.body.commentEmail)
+    console.log(req.body.commentTime)
+    console.log(req.body.commentContent)
+    console.log("-----------------------------------")
     const newComment = {
         commentEmail: req.body.commentEmail,
         commentTime: req.body.commentTime,

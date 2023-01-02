@@ -14,4 +14,4 @@ const blogsRouter = require('./routes/blogs')
 app.use('/blogs',blogsRouter)
 
 const port =process.env.PORT || 3000;
-app.listen(port, ()=>console.log("Server Started"))
+app.listen(port, ()=>console.log("Server Started at port "+port))
