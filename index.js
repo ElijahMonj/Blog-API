@@ -4,7 +4,7 @@ const app =express()
 const mongoose=require('mongoose')
 
 
-mongoose.connect("mongodb+srv://admin:admin@cluster0.3hfbcxb.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser:true,dbName:'Blog-API'})
+mongoose.connect("mongodb+srv://admin:"+process.env.password+"@cluster0.3hfbcxb.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser:true,dbName:'Blog-API'})
 const db=mongoose.connection
 db.on('error', (error)=>console.error(error))
 db.once('open', ()=>console.error("Connected to database"))
